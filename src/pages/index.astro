@@ -1,6 +1,7 @@
 ---
 // Component Imports
 import Counter from '../components/Counter';
+import Layout from '../components/Layout';
 const someProps = {
 	count: 0,
 };
@@ -28,9 +29,10 @@ const someProps = {
 	</head>
 	<body>
 		<main>
-			<Counter {...someProps} client:visible>
+			<Layout client:visible/>
+			<!-- <Counter {...someProps} client:visible>
 				<h1>Hello, React!</h1>
-			</Counter>
+			</Counter> -->
 		</main>
 	</body>
 </html>
