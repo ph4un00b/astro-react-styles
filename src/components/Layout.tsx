@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import { Button, Drawer, Menu, Navbar } from 'react-daisyui';
 
+const side = (
+  <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+    <li>
+      <a>Sidebar Item 1</a>
+    </li>
+    <li>
+      <a>Sidebar Item 2</a>
+    </li>
+  </ul>
+);
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [visible, setVisible] = useState(false);
 
@@ -9,7 +20,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <Drawer open={visible} onClickOverlay={toggleVisible} className="font-sans">
+    <Drawer
+      side={side}
+      open={visible}
+      onClickOverlay={toggleVisible}
+      className="font-sans"
+    >
       <Navbar>
         <div className="flex-none lg:hidden">
           <Button shape="square" color="ghost" onClick={toggleVisible}>
