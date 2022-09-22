@@ -2,12 +2,15 @@
 // Component Imports
 import Counter from '../components/Counter';
 import Layout from '../components/Layout';
+import Poke from '../components/Poke.astro';
 const someProps = {
 	count: 0,
 };
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
+
+const pokemons = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10`).then(res => res.json())
 ---
 
 <html lang="en">
@@ -29,7 +32,10 @@ const someProps = {
 	</head>
 	<body>
 		<main>
-			<Layout client:load/>
+		<h1>hola</h1>
+			<!-- <Layout client:load/> -->
+			<!-- {JSON.stringify(pokemons.results, null, 2)} -->
+			{pokemons.results.map(poke => <Poke name={poke.name} />)}
 		</main>
 	</body>
 </html>
